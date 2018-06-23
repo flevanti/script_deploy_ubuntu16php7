@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    webserver:
+        build:
+            context: "."
+        volumes:
+            - ../script:/root/script
+        ports:
+            - "81:80"
+ 
+        container_name: UBUNTU16

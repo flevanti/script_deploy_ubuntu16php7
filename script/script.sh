@@ -1,4 +1,4 @@
-apt-get update
+apt-get update -y
 apt-get upgrade -y
 # apt-get dist-upgrade
 apt-get install software-properties-common
@@ -67,7 +67,6 @@ a2enconf xxx-serversignature.conf
 
 echo "ServerName localhost" | tee  /etc/apache2/conf-available/xxx-fqdn-fullyqualifieddomainname.conf
 a2enconf xxx-fqdn-fullyqualifieddomainname.conf
-ServerName localhost   
 
 # restart apache
 apache2ctl restart
@@ -83,7 +82,7 @@ apache2ctl restart
 
 # change www folder owner to ubuntu
 # change www folder group to www-data
-chown -R ubuntu:www-data www
+# chown -R ubuntu:www-data www
 
 
 
