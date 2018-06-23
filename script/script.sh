@@ -59,6 +59,8 @@ mkdir  /var/www/html_catch_all
 cp ./001-public_php7.conf /etc/apache2/sites-available/
 cp ./999-default_catch_all.conf /etc/apache2/sites-available/
 
+a2ensite 001-public_php7 999-default_catch_all
+
 echo "ServerTokens Prod" | tee  /etc/apache2/conf-available/xxx-servertokens.conf
 a2enconf xxx-servertokens.conf
 
