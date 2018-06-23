@@ -53,18 +53,21 @@ systemctl restart apache2
 
 # created catch all vhost + folder
 # created php7 test vhost + folder
-mkdir  public_php7
-mkdir  html_catch_all
+mkdir  /var/www/public_php7
+mkdir  /var/www/html_catch_all
 
 cp ./001-public_php7.conf /etc/apache2/sites-available/
 cp ./999-default_catch_all.conf /etc/apache2/sites-available/
 
-# create apache conf file and enable conf
-echo "ServerTokens Prod" | sudo tee  /etc/apache2/conf-available/xxx-servertokens.conf
+echo "ServerTokens Prod" | tee  /etc/apache2/conf-available/xxx-servertokens.conf
 a2enconf xxx-servertokens.conf
 
-echo "ServerSignature Off" | sudo tee  /etc/apache2/conf-available/xxx-serversignature.conf
+echo "ServerSignature Off" | tee  /etc/apache2/conf-available/xxx-serversignature.conf
 a2enconf xxx-serversignature.conf
+
+echo "ServerName localhost" | tee  /etc/apache2/conf-available/xxx-fqdn-fullyqualifieddomainname.conf
+a2enconf xxx-fqdn-fullyqualifieddomainname.conf
+ServerName localhost   
 
 # restart apache
 apache2ctl restart
